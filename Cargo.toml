@@ -1,0 +1,55 @@
+[package]
+name = "relay"
+version = "0.1.0"
+edition = { workspace = true }
+license = { workspace = true }
+
+[dependencies]
+anyhow = { workspace = true }
+backoff = { workspace = true }
+base64 = { workspace = true }
+bytecodec = { workspace = true }
+bytes = { workspace = true }
+clap = { workspace = true, features = ["derive", "env"] }
+derive_more = { workspace = true, features = ["from"] }
+futures = { workspace = true }
+hex = { workspace = true }
+hex-display = { workspace = true }
+mio = { workspace = true, features = ["net"] }
+once_cell = { workspace = true }
+opentelemetry = { workspace = true, features = ["metrics"] }
+opentelemetry-otlp = { workspace = true, features = ["metrics"] }
+opentelemetry_sdk = { workspace = true, features = ["rt-tokio"] }
+phoenix-channel = { workspace = true }
+proptest = { workspace = true, optional = true }
+rand = { workspace = true }
+rustls = { workspace = true }
+secrecy = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+sha2 = { workspace = true }
+smallvec = { workspace = true }
+socket-factory = { workspace = true }
+socket2 = { workspace = true }
+stun_codec = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true, features = ["macros", "rt-multi-thread", "net", "time", "signal"] }
+tracing = { workspace = true, features = ["log"] }
+tracing-core = { workspace = true }
+tracing-opentelemetry = { workspace = true }
+tracing-stackdriver = { workspace = true, features = ["opentelemetry"] }
+tracing-subscriber = { workspace = true, features = ["env-filter", "json", "fmt"] }
+trackable = { workspace = true }
+url = { workspace = true }
+uuid = { workspace = true, features = ["v4"] }
+
+[dev-dependencies]
+difference = { workspace = true }
+env_logger = { workspace = true }
+test-strategy = { workspace = true }
+
+[[test]]
+name = "regression"
+required-features = ["proptest"]
+
+[lints]
+workspace = true
